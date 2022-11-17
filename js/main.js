@@ -1,3 +1,15 @@
+import {createPhotos} from './data';
+//import './util';
+
+createPhotos();
+
+
+// Функция checkStringLength для проверки максимальной длины строки
+function checkStringLength (string, length) {
+  return string.length <= length;
+}
+
+// задание 3
 function getRandomIntInclusive(min, max) {
   if (min > 0 && !isNaN(max)) {
     min = Math.ceil(min);
@@ -8,9 +20,7 @@ function getRandomIntInclusive(min, max) {
   }
 }
 
-
 //getRandomIntInclusive(1,10);
-
 
 function getStringLength (string, maxlength) {
   if (string.length <= maxlength) {
@@ -19,6 +29,5 @@ function getStringLength (string, maxlength) {
     return false;
   }
 }
-
 
 //getStringLength('Привет',10);
