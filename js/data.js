@@ -1,5 +1,6 @@
-import {getRandomArrayElement, getRandomPositiveInteger} from './util.js';
+//import {getRandomArrayElement, getRandomPositiveInteger} from './util.js';
 
+//const createPhotos = () = {}
 const ID = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 const URLS = [
   'photos/1.jpg',
@@ -40,14 +41,15 @@ const DESCRIPTION = [
 
 const SIMILAR_PHOTO_COUNT = 25;
 
-const createPhoto = () => ({
-  id: getRandomArrayElement(ID),
-  url: getRandomArrayElement(URLS),
-  description: getRandomArrayElement(DESCRIPTION),
-  likes: getRandomPositiveInteger(15, 200),
-  comments: getRandomPositiveInteger(0, 200),
-});
+// const createPhoto = () => ({
+//   id: getRandomArrayElement(ID),
+//   url: getRandomArrayElement(URLS),
+//   description: getRandomArrayElement(DESCRIPTION),
+//   likes: getRandomPositiveInteger(15, 200),
+//   comments: getRandomPositiveInteger(0, 200),
+// });
+//
+// const createPhotos = Array.from({length: SIMILAR_PHOTO_COUNT}, createPhoto);
 
-const createPhotos = Array.from({length: SIMILAR_PHOTO_COUNT}, createPhoto);
 
-export {createPhotos};
+export {ID, URLS, DESCRIPTION, SIMILAR_PHOTO_COUNT};
