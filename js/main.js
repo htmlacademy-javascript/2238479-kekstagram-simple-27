@@ -1,6 +1,10 @@
-import {createPosts} from './data';
-import {renderPosts} from './picture';
-import './form.js';
+import {renderPictures} from './pictures';
+import {closeModal, setFormSubmit} from './form.js';
+import {getData} from './API.js';
 
-renderPosts(createPosts);
+getData((pictures) => {
+  renderPictures(pictures);
+});
+
+setFormSubmit(closeModal);
 
