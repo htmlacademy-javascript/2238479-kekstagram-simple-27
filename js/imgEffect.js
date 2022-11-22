@@ -1,4 +1,4 @@
-const image = document.querySelector('.img-upload__preview img');
+const img = document.querySelector('.img-upload__preview img');
 const form = document.querySelector('.img-upload__form');
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectLevel = document.querySelector('.effect-level__value');
@@ -81,16 +81,16 @@ const onFormChange = (evt) => {
 };
 
 const onSliderUpdate = () => {
-  image.style.filter = 'none';
-  image.className = '';
+  img.style.filter = 'none';
+  img.className = '';
   effectLevel.value = '';
   if (isDefault()) {
     return;
   }
 
   const sliderValue = sliderElement.noUiSlider.get();
-  image.style.filter = `${chosenEffect.style}(${sliderValue}${chosenEffect.unit})`;
-  image.classList.add(`effects__preview--${chosenEffect.name}`);
+  img.style.filter = `${chosenEffect.style}(${sliderValue}${chosenEffect.unit})`;
+  img.classList.add(`effects__preview--${chosenEffect.name}`);
   effectLevel.value = sliderValue;
 };
 
