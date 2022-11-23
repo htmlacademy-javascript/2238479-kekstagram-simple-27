@@ -79,3 +79,5 @@ fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelClick);
 
 export {ClosePopupEsc, closeModal};
+
+
