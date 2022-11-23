@@ -80,4 +80,3 @@ cancelButton.addEventListener('click', onCancelClick);
 
 export {ClosePopupEsc, closeModal};
 
-
