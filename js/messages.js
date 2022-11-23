@@ -1,4 +1,5 @@
 import {isEscapeKey, getTemplateElement} from './util.js';
+import {ClosePopupEsc} from './form.js';
 
 const ALERT_SHOW_TIME = 5000;
 
@@ -31,10 +32,11 @@ const openUploadMessagePopup = (popupType) => {
   const innerPopupSection = innerPopup.querySelector(popupInnerSection);
   const popupButton = innerPopup.querySelector(popupButtonElementClass);
 
-  const onUploadMessagePopupEsc = (evt) => {
+  const MessagePopupEsc = (evt) => {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
       closeUploadMessagePopup();
+      document.addEventListener('keydown', ClosePopupEsc);
     }
   };
 
@@ -42,17 +44,21 @@ const openUploadMessagePopup = (popupType) => {
     const isOutsideClick = !evt.composedPath().includes(innerPopupSection);
     if (isOutsideClick) {
       closeUploadMessagePopup();
+      document.addEventListener('keydown', ClosePopupEsc);
     }
   };
 
   function closeUploadMessagePopup() {
     popupButton.removeEventListener('click', closeUploadMessagePopup);
-    document.removeEventListener('keydown', onUploadMessagePopupEsc);
+    document.removeEventListener('keydown', MessagePopupEsc);
     document.removeEventListener('click', onOutsideClick);
     innerPopup.remove();
+    document.addEventListener('keydown', ClosePopupEsc);
   }
-  document.addEventListener('keydown', onUploadMessagePopupEsc);
+
+  document.addEventListener('keydown', MessagePopupEsc);
   document.addEventListener('click', onOutsideClick);
+  document.removeEventListener('keydown', ClosePopupEsc);
 
   popupButton.addEventListener('click', closeUploadMessagePopup);
 
