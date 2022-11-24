@@ -2,6 +2,7 @@ const img = document.querySelector('.img-upload__preview img');
 const form = document.querySelector('.img-upload__form');
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectLevel = document.querySelector('.effect-level__value');
+const sliderFieldset = document.querySelector('.img-upload__effect-level');
 
 const EFFECTS = [
   {
@@ -69,6 +70,7 @@ const updateSlider = () => {
 
   if (isDefault()) {
     sliderElement.classList.add('hidden');
+    sliderFieldset.classList.add('hidden');
   }
 };
 

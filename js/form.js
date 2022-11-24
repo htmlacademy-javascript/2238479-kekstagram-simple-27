@@ -15,7 +15,7 @@ const submitButton = document.querySelector('.img-upload__submit');
 const openModal = () => {
   overlay.classList.remove('hidden');
   body.classList.add('modal-open');
-  document.addEventListener('keydown', ClosePopupEsc);
+  document.addEventListener('keydown', pressEscToClosePopup);
 };
 
 const closeModal = () => {
@@ -24,12 +24,12 @@ const closeModal = () => {
   resetEffect();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
-  document.removeEventListener('keydown', ClosePopupEsc);
+  document.removeEventListener('keydown', pressEscToClosePopup);
 };
 
 const isTextFieldFocused = () => document.activeElement === commentField;
 
-function ClosePopupEsc(evt) {
+function pressEscToClosePopup(evt) {
   if(isEscapeKey(evt) && !isTextFieldFocused()) {
     evt.preventDefault();
     closeModal();
@@ -78,5 +78,5 @@ form.addEventListener('submit', (evt) => {
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancelClick);
 
-export {ClosePopupEsc, closeModal};
+export {pressEscToClosePopup, closeModal};
 
