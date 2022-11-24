@@ -47,7 +47,6 @@
 //   likes: getRandomPositiveInteger(15, 200),
 //   comments: getRandomPositiveInteger(0, 200),
 // });
-//
 // const createPosts = Array.from({length: SIMILAR_PHOTO_COUNT}, (item, index) => createPost(index + 1));
 //
 //
