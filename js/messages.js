@@ -1,5 +1,5 @@
 import {isEscapeKey, getTemplateElement} from './util.js';
-import {ClosePopupEsc} from './form.js';
+import {pressEscToClosePopup} from './form.js';
 
 const ALERT_SHOW_TIME = 5000;
 
@@ -32,33 +32,33 @@ const openUploadMessagePopup = (popupType) => {
   const innerPopupSection = innerPopup.querySelector(popupInnerSection);
   const popupButton = innerPopup.querySelector(popupButtonElementClass);
 
-  const MessagePopupEsc = (evt) => {
+  const pressEscMessagePopup = (evt) => {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
       closeUploadMessagePopup();
-      document.addEventListener('keydown', ClosePopupEsc);
+      document.addEventListener('keydown', pressEscToClosePopup);
     }
   };
 
-  const onOutsideClick = (evt) => {
+  const onOutsideClickToClosePopupMessage = (evt) => {
     const isOutsideClick = !evt.composedPath().includes(innerPopupSection);
     if (isOutsideClick) {
       closeUploadMessagePopup();
-      document.addEventListener('keydown', ClosePopupEsc);
+      document.addEventListener('keydown', pressEscToClosePopup);
     }
   };
 
   function closeUploadMessagePopup() {
     popupButton.removeEventListener('click', closeUploadMessagePopup);
-    document.removeEventListener('keydown', MessagePopupEsc);
-    document.removeEventListener('click', onOutsideClick);
+    document.removeEventListener('keydown', pressEscMessagePopup);
+    document.removeEventListener('click', onOutsideClickToClosePopupMessage);
     innerPopup.remove();
-    document.addEventListener('keydown', ClosePopupEsc);
+    document.addEventListener('keydown', pressEscToClosePopup);
   }
 
-  document.addEventListener('keydown', MessagePopupEsc);
-  document.addEventListener('click', onOutsideClick);
-  document.removeEventListener('keydown', ClosePopupEsc);
+  document.addEventListener('keydown', pressEscMessagePopup);
+  document.addEventListener('click', onOutsideClickToClosePopupMessage);
+  document.removeEventListener('keydown', pressEscToClosePopup);
 
   popupButton.addEventListener('click', closeUploadMessagePopup);
 
